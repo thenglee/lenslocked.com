@@ -64,3 +64,9 @@ images/**
 .config
 notes/**
 .vscode/**
+
+# Don't include vim temp files
+*.swp
+
+# Don't include binary
+lenslocked.com
