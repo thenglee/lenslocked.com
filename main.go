@@ -17,7 +17,8 @@ func contact(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "To get in touch, please send an email to <a href=\"mailto:supprt@lenslocked.com\">support@lenslocked.com</a>.")
 }
 
-func notfound(w http.ResponseWriter, r *http.Request) {
+func notFound(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
 	w.WriteHeader(http.StatusNotFound)
 	fmt.Fprint(w, "<h1>Page not found</h1>")
 }
@@ -26,6 +27,6 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
-	r.NotFoundHandler = http.HandlerFunc(notfound)
-	http.ListenAndServe(":3000", r) // use DefaultServeMux
+	r.NotFoundHandler = http.HandlerFunc(notFound)
+	http.ListenAndServe(":3000", r)
 }
