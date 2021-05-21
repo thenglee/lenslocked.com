@@ -2,5 +2,12 @@
 <h2>Your dog's name is {{.Dog.Name}}</h2>
 <h2>Your dog's breed is {{.Dog.Breed}}</h2>
 <h2> Your age is {{.Age}}</h2>
+<h2> Your hobbies are:
+  {{ range $hobby := .Hobbies}}<p>{{$hobby}}</p>{{end}}
+{{ if .LikeGolang }}
+  <h2>You like Golang!</h2>
+{{ else }}
+  <h2>You don't like Golang :(</h2>
+{{ end }}
 
 <script>{{.Dog}}</script>

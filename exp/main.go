@@ -6,9 +6,11 @@ import (
 )
 
 type User struct {
-	Name string
-	Dog  map[string]string
-	Age  int
+	Name       string
+	Dog        map[string]string
+	Age        int
+	Hobbies    []string
+	LikeGolang bool
 }
 
 func main() {
@@ -24,6 +26,8 @@ func main() {
 			"Name":  "Snoopy",
 			"Breed": "Beagle",
 		},
+		Hobbies:    []string{"running", "cooking"},
+		LikeGolang: true,
 	}
 
 	err = t.Execute(os.Stdout, data)
