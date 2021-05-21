@@ -6,11 +6,11 @@ import (
 )
 
 type User struct {
-	Name       string
-	Dog        map[string]string
-	Age        int
-	Hobbies    []string
-	LikeGolang bool
+	Name  string
+	Int   int
+	Float float64
+	Slice []string
+	Map   map[string]string
 }
 
 func main() {
@@ -20,14 +20,14 @@ func main() {
 	}
 
 	data := User{
-		Name: "John Smith",
-		Age:  25,
-		Dog: map[string]string{
-			"Name":  "Snoopy",
-			"Breed": "Beagle",
+		Name:  "John Smith",
+		Int:   123,
+		Float: 3.14,
+		Slice: []string{"a", "b", "c"},
+		Map: map[string]string{
+			"key1": "value1",
+			"key2": "value2",
 		},
-		Hobbies:    []string{"running", "cooking"},
-		LikeGolang: true,
 	}
 
 	err = t.Execute(os.Stdout, data)
