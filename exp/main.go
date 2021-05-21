@@ -7,7 +7,8 @@ import (
 
 type User struct {
 	Name string
-	Dog  string
+	Dog  map[string]string
+	Age  int
 }
 
 func main() {
@@ -18,7 +19,11 @@ func main() {
 
 	data := User{
 		Name: "John Smith",
-		Dog:  "Husky",
+		Age:  25,
+		Dog: map[string]string{
+			"Name":  "Snoopy",
+			"Breed": "Beagle",
+		},
 	}
 
 	err = t.Execute(os.Stdout, data)
