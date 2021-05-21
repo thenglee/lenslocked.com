@@ -5,12 +5,13 @@ import (
 	"os"
 )
 
+type Dog struct {
+	Name string
+}
+
 type User struct {
-	Name  string
-	Int   int
-	Float float64
+	Dog   Dog
 	Slice []string
-	Map   map[string]string
 }
 
 func main() {
@@ -20,14 +21,10 @@ func main() {
 	}
 
 	data := User{
-		Name:  "John Smith",
-		Int:   123,
-		Float: 3.14,
-		Slice: []string{"a", "b", "c"},
-		Map: map[string]string{
-			"key1": "value1",
-			"key2": "value2",
+		Dog: Dog{
+			Name: "Morty",
 		},
+		Slice: []string{"a", "b", "c"},
 	}
 
 	err = t.Execute(os.Stdout, data)
